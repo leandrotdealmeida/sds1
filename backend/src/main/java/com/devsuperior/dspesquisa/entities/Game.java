@@ -1,7 +1,5 @@
 package com.devsuperior.dspesquisa.entities;
 
-import com.devsuperior.dspesquisa.entities.enums.Platform;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.devsuperior.dspesquisa.entities.enums.Platform;
+
 @Entity
 @Table(name = "tb_game")
 public class Game implements Serializable {
@@ -26,11 +26,11 @@ public class Game implements Serializable {
 	private Long id;
     private String title;
     private Platform platform;
-
+  
     @ManyToOne
     @JoinColumn(name = "genre_id")
     private Genre genre;
-
+  
     @OneToMany(mappedBy = "game")
     List<Record> records = new ArrayList<>();
 
